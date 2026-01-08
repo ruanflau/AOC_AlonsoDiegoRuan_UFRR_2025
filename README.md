@@ -1,8 +1,9 @@
+```markdown
 # AOC_AlonsoDiegoRuan_UFRR_2025
 
 **Universidade Federal de Roraima (UFRR)**
 **Disciplina:** Arquitetura e Organização de Computadores (2025.2)
-**Autores:**
+**Autores:** Alonso, Diego, Ruan
 
 ---
 
@@ -22,9 +23,13 @@ Este projeto foi desenvolvido para rodar em ambiente **Linux** (Nativo ou WSL no
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential git wget curl unzip python3 python3-pip clang
 
+```
+
 ### 2. Instalar OSS CAD Suite (Yosys, GHDL, SymbiYosys)
 
 Baixa e instala a suíte de ferramentas FPGA para Linux.
+
+```bash
 cd ~
 # Baixar pacote (Versão 2024-01-04)
 wget [https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-01-04/oss-cad-suite-linux-x64-20240104.tgz](https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-01-04/oss-cad-suite-linux-x64-20240104.tgz)
@@ -36,6 +41,14 @@ tar -xzf oss-cad-suite-linux-x64-20240104.tgz
 echo 'export PATH=~/oss-cad-suite/bin:$PATH' >> ~/.bashrc
 source ~/.bashrc
 
+```
+
+### 3. Instalar ESBMC (Verificador de Software)
+
+Instala o verificador de modelos para validar o código C gerado.
+
+```bash
+cd ~
 # Baixar binário estático para Linux
 wget [https://github.com/esbmc/esbmc/releases/download/v7.6.0/esbmc-v7.6.0-linux-static-64.zip](https://github.com/esbmc/esbmc/releases/download/v7.6.0/esbmc-v7.6.0-linux-static-64.zip)
 
@@ -46,3 +59,73 @@ unzip esbmc-v7.6.0-linux-static-64.zip -d esbmc_tool
 # Instalar no sistema
 sudo cp esbmc_tool/bin/esbmc /usr/local/bin/
 sudo chmod +x /usr/local/bin/esbmc
+
+# Testar instalação
+esbmc --version
+
+```
+
+---
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+
+* Ter concluído a instalação acima.
+* Ter o Python 3 instalado.
+
+### Passo a Passo
+
+1. **Clone o repositório:**
+```bash
+git clone [https://github.com/SEU_USUARIO/AOC_Ruan_UFRR_2025.git](https://github.com/SEU_USUARIO/AOC_Ruan_UFRR_2025.git)
+cd AOC_Ruan_UFRR_2025
+
+```
+
+
+2. **Execute o Pipeline Automatizado:**
+```bash
+python3 pipeline_verify.py
+
+```
+
+
+
+### Resultados Esperados
+
+O script executará as 5 etapas do pipeline automaticamente. O sucesso é indicado pela mensagem final no terminal:
+`=== FINALIZADO ===`
+
+Os logs de validação podem ser conferidos na pasta `results/`:
+
+* **`results/symbiyosys.log`**: Deve conter `DONE (PASS)` (Validação do Hardware).
+* **`results/esbmc.log`**: Deve conter `VERIFICATION SUCCESSFUL` (Validação do Modelo C).
+
+---
+
+## 🎯 Objetivos Atingidos (Task 04)
+
+* **Limites do Pipeline:** Validação de constructs complexos (arrays, integers, processos clockados) em VHDL-2008.
+* **Extensão com Yosys:** Uso de síntese RTL e plugin GHDL para pré-processamento.
+* **Verificação Dual:** Integração do SymbiYosys (Hardware BMC) para contraprova do ESBMC.
+* **Automação Python:** Script que detecta arquivos, extrai tags `@c2vhdl:ASSERT` e orquestra as ferramentas.
+* **Front-end Unificado (AST Comum):** Geração de código C baseada no JSON do Yosys, garantindo coerência de largura de bits (*Bitwidth Consistency*).
+
+---
+
+## 📂 Estrutura do Repositório
+
+```text
+.
+├── pipeline_verify.py    # Script principal de automação (Python 3.12)
+├── test_limits.vhd       # Design de hardware utilizado para testes de estresse (VHDL-2008)
+├── check_test_limits.c   # Modelo de software em C gerado dinamicamente a partir do AST
+├── results/              # Diretório contendo os logs de evidência
+└── docs/                 # Relatório técnico em formato SBC
+
+```
+
+```
+
+```
