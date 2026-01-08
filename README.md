@@ -1,7 +1,9 @@
 # AOC_AlonsoDiegoRuan_UFRR_2025
 
 **Universidade Federal de Roraima (UFRR)**
+
 **Disciplina:** Arquitetura e Organização de Computadores (2025.2)
+
 **Autores:** Alonso, Diego, Ruan
 
 ---
