@@ -21,3 +21,28 @@ Este projeto foi desenvolvido para rodar em ambiente **Linux** (Nativo ou WSL no
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential git wget curl unzip python3 python3-pip clang
+
+### 2. Instalar OSS CAD Suite (Yosys, GHDL, SymbiYosys)
+
+Baixa e instala a suíte de ferramentas FPGA para Linux.
+cd ~
+# Baixar pacote (Versão 2024-01-04)
+wget [https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-01-04/oss-cad-suite-linux-x64-20240104.tgz](https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-01-04/oss-cad-suite-linux-x64-20240104.tgz)
+
+# Extrair
+tar -xzf oss-cad-suite-linux-x64-20240104.tgz
+
+# Adicionar ao PATH permanentemente
+echo 'export PATH=~/oss-cad-suite/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+
+# Baixar binário estático para Linux
+wget [https://github.com/esbmc/esbmc/releases/download/v7.6.0/esbmc-v7.6.0-linux-static-64.zip](https://github.com/esbmc/esbmc/releases/download/v7.6.0/esbmc-v7.6.0-linux-static-64.zip)
+
+# Criar pasta e extrair
+mkdir esbmc_tool
+unzip esbmc-v7.6.0-linux-static-64.zip -d esbmc_tool
+
+# Instalar no sistema
+sudo cp esbmc_tool/bin/esbmc /usr/local/bin/
+sudo chmod +x /usr/local/bin/esbmc
