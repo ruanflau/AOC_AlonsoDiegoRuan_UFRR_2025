@@ -1,4 +1,3 @@
-```markdown
 # AOC_AlonsoDiegoRuan_UFRR_2025
 
 **Universidade Federal de Roraima (UFRR)**
@@ -8,6 +7,7 @@
 ---
 
 ## 📌 Sobre o Projeto
+
 Este repositório contém os artefatos da **Atividade Final (Task 04): Automatizando e ampliando a metodologia de verificação (VHDL → C → ESBMC)**.
 
 O projeto implementa um **pipeline de verificação formal automatizado** que unifica a validação de hardware (RTL) e software (Modelos C). O principal diferencial é o uso de um *Front-end* baseado em AST (Árvore de Sintaxe Abstrata), extraído via Yosys, que garante consistência matemática entre os tipos do VHDL (ex: vetores de 8 bits) e os tipos do C (máscaras de bits dinâmicas), eliminando falsos positivos na verificação.
@@ -19,6 +19,7 @@ O projeto implementa um **pipeline de verificação formal automatizado** que un
 Este projeto foi desenvolvido para rodar em ambiente **Linux** (Nativo ou WSL no Windows). Siga os comandos abaixo para configurar todas as ferramentas necessárias do zero.
 
 ### 1. Atualizar sistema e dependências básicas
+
 ```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential git wget curl unzip python3 python3-pip clang
@@ -32,7 +33,7 @@ Baixa e instala a suíte de ferramentas FPGA para Linux.
 ```bash
 cd ~
 # Baixar pacote (Versão 2024-01-04)
-wget [https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-01-04/oss-cad-suite-linux-x64-20240104.tgz](https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-01-04/oss-cad-suite-linux-x64-20240104.tgz)
+wget https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-01-04/oss-cad-suite-linux-x64-20240104.tgz
 
 # Extrair
 tar -xzf oss-cad-suite-linux-x64-20240104.tgz
@@ -50,7 +51,7 @@ Instala o verificador de modelos para validar o código C gerado.
 ```bash
 cd ~
 # Baixar binário estático para Linux
-wget [https://github.com/esbmc/esbmc/releases/download/v7.6.0/esbmc-v7.6.0-linux-static-64.zip](https://github.com/esbmc/esbmc/releases/download/v7.6.0/esbmc-v7.6.0-linux-static-64.zip)
+wget https://github.com/esbmc/esbmc/releases/download/v7.6.0/esbmc-v7.6.0-linux-static-64.zip
 
 # Criar pasta e extrair
 mkdir esbmc_tool
@@ -78,7 +79,7 @@ esbmc --version
 
 1. **Clone o repositório:**
 ```bash
-git clone [https://github.com/SEU_USUARIO/AOC_Ruan_UFRR_2025.git](https://github.com/SEU_USUARIO/AOC_Ruan_UFRR_2025.git)
+git clone https://github.com/SEU_USUARIO/AOC_Ruan_UFRR_2025.git
 cd AOC_Ruan_UFRR_2025
 
 ```
@@ -123,9 +124,5 @@ Os logs de validação podem ser conferidos na pasta `results/`:
 ├── check_test_limits.c   # Modelo de software em C gerado dinamicamente a partir do AST
 ├── results/              # Diretório contendo os logs de evidência
 └── docs/                 # Relatório técnico em formato SBC
-
-```
-
-```
 
 ```
