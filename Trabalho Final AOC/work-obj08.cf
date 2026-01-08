@@ -1,0 +1,4 @@
+v 4
+file . "test_limits.vhd" "a84859e32f0e27094b2d67af682ba315ac26bc47" "20260108150606.191":
+  entity test_limits at 1( 0) + 0 on 11;
+  architecture rtl of test_limits at 15( 329) + 0 on 12;

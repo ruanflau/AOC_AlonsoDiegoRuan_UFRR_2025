@@ -1,0 +1,6 @@
+# running in verify/src/
+read_verilog design_norm.v
+prep -top test_limits
+hierarchy -smtcheck
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

@@ -1,0 +1,10 @@
+[options]
+mode prove
+depth 20
+[engines]
+smtbmc
+[script]
+read_verilog design_norm.v
+prep -top test_limits
+[files]
+design_norm.v
