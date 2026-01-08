@@ -116,15 +116,3 @@ Os logs de validação podem ser conferidos na pasta `results/`:
 * **Front-end Unificado (AST Comum):** Geração de código C baseada no JSON do Yosys, garantindo coerência de largura de bits (*Bitwidth Consistency*).
 
 ---
-
-## 📂 Estrutura do Repositório
-
-```text
-.
-├── pipeline_verify.py    # Script principal de automação (Python 3.12)
-├── test_limits.vhd       # Design de hardware utilizado para testes de estresse (VHDL-2008)
-├── check_test_limits.c   # Modelo de software em C gerado dinamicamente a partir do AST
-├── results/              # Diretório contendo os logs de evidência
-└── docs/                 # Relatório técnico em formato SBC
-
-```
