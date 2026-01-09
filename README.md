@@ -9,7 +9,7 @@
 ---
 
 ## 📌 Sobre o Projeto
-![alt text]([http://url/to/img.png](https://github.com/ruanflau/AOC_AlonsoDiegoRuan_UFRR_2025/blob/main/Captura%20de%20tela%202026-01-08%20105957.png?raw=true))
+![alt text](https://github.com/ruanflau/AOC_AlonsoDiegoRuan_UFRR_2025/blob/main/Captura%20de%20tela%202026-01-08%20105957.png?raw=true)
 Este repositório contém os artefatos da **Atividade Final (Task 04): Automatizando e ampliando a metodologia de verificação (VHDL → C → ESBMC)**.
 
 O projeto implementa um **pipeline de verificação formal automatizado** que unifica a validação de hardware (RTL) e software (Modelos C). O principal diferencial é o uso de um *Front-end* baseado em AST (Árvore de Sintaxe Abstrata), extraído via Yosys, que garante consistência matemática entre os tipos do VHDL (ex: vetores de 8 bits) e os tipos do C (máscaras de bits dinâmicas), eliminando falsos positivos na verificação.
